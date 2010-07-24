@@ -29,9 +29,9 @@ var room = {
     },
     
     _send: function(user,message){
-        user=user.replace(':','_');
+	var finalMessage = {'user': user, 'message':message}
         if (this._ws)
-            this._ws.send(user+':'+message);
+            this._ws.send(JSON.stringify(finalMessage));
     },
     
     chat: function(text) {
@@ -41,10 +41,9 @@ var room = {
     
     _onmessage: function(m) {
         if (m.data){
-	    console.log(m.data);
-            var c=m.data.indexOf(':');
-            var from=m.data.substring(0,c).replace('<','&lt;').replace('>','&gt;');
-            var text=m.data.substring(c+1).replace('<','&lt;').replace('>','&gt;');
+	    var data = JSON.parse(m.data);
+	    var from = data.user;
+	    var text = data.message;
             
             var chat=$('chat');
             var spanFrom = document.createElement('span');
