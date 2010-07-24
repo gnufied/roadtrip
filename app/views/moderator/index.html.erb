@@ -26,7 +26,7 @@
       <% form_for @question, :url => questions_url, :html => {:id => "create_q_form"} do |f|%>
         <p><%= f.hidden_field :content%></p>
         <%f.fields_for :answers do |answer_fields|%>
-          <p><%=answer_fields.radio_button :correct, true, {:checked => false}%><%= answer_fields.text_field :content %></p>
+          <p><%=answer_fields.radio_button :correct, true%><%= answer_fields.text_field :content %></p>
         <%end-%>
         <%= submit_tag "Create Question"%> 
       <%end-%>
