@@ -1,14 +1,16 @@
 <div id="main_column" class="answer_screen">
 
   <h2>Question</h2>
-  <p><%= @question.content -%></p>
+  <p id='question_content'><%= @question.content -%></p>
 
   <h2>Pick an Answer</h2>
   <% form_tag('/audience/save',:id => 'question_form') do -%>
     <%= hidden_field_tag 'question_id', @question.id -%>
+    <div id='answer_choices'>
   	<% @question.answers.each do |answer| -%>
       <p><%= radio_button_tag 'answer', answer.id -%> <%= answer.content -%> </p>
-  	<% end -%>
+    <% end -%>
+  </div>
     <p><%= submit_tag "Done!"%></p>
   <% end -%>
 </div>
