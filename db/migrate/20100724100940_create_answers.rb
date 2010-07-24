@@ -3,6 +3,8 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.string :content
       t.string :title
+      t.integer :question_id
+      t.boolean :correct, :default => false
       t.timestamps
     end
   end
