@@ -1,3 +1,5 @@
+/* Hackey javascript taken from websocket demo application */
+
 if (!window.WebSocket)
     alert("WebSocket not supported by this browser");
 
