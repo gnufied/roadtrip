@@ -15,9 +15,9 @@ var room = {
         this._username=name;
         var location = 'ws://solaro.local:8080/socket';
 
-        this._ws=new WebSocket(location);
-        this._ws.onopen=this._onopen;
-        this._ws.onmessage=this._onmessage;
+        this._ws = new WebSocket(location);
+        this._ws.onopen = this._onopen;
+        this._ws.onmessage = this._onmessage;
         this._ws.onclose=this._onclose;
     },
     
@@ -41,6 +41,7 @@ var room = {
     
     _onmessage: function(m) {
         if (m.data){
+	    console.log(m.data);
             var c=m.data.indexOf(':');
             var from=m.data.substring(0,c).replace('<','&lt;').replace('>','&gt;');
             var text=m.data.substring(c+1).replace('<','&lt;').replace('>','&gt;');

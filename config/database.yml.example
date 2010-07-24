@@ -7,7 +7,7 @@ common: &common
     
 development:
   <<: *common
-  database: roatrip_dev
+  database: roadrip_dev
 
 
 test: &TEST
