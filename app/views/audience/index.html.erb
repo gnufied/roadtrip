@@ -1,0 +1,28 @@
+<div class="question">
+  <div class="title">
+    <span class='question_mark'>Q. </span>
+    Identify the author <br />
+    <em>
+      All that is gold does not glitter, <br/>
+      Not all those who wander are lost;
+    </em>
+  </div>
+  <div class="answer">
+    <% form_tag('/audience') do -%>
+      <div class='answer_option'>
+	<%= radio_button_tag 'gender', 'male' -%> Male
+      </div>
+      <div class='answer_option'>
+	<%= radio_button_tag 'gender', 'female' -%> Female
+      </div>
+      <div class='answer_option'>
+	<%= radio_button_tag 'gender', 'foo' -%> Foo
+      </div>
+      <div class='answer_option'>
+	<%= radio_button_tag 'gender', 'bar' -%> Bar
+      </div>
+    <% end -%>
+  </div>
+</div>
+
+
