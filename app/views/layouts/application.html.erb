@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>mr. hurley | personal blog</title>
+  <title>Realtime Quiz</title>
   <link href="/stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-  <%= javascript_include_tag "jquery-1.4.2.min.js", "jquery-yql", "quiz"%>
+  <%= javascript_include_tag "jquery-1.4.2.min.js", "jquery-yql", "quiz", "websocket"%>
   <script type="text/javascript">
     $.noConflict();
   </script>
@@ -12,37 +12,39 @@
 <body>
   <header id="site_head"><!--useful to create the 960px limit-->
 
-    <div class="header_cont">
-    <h1><a href="#">mr. hurley</a></h1>
-    
-    <nav class="head_nav">
-    <ul>
-      <li class="rss"><a href="#">Subscribe</a></li>
-      <li class="twitter"><a href="#">Follow Me</a></li>
-      <li class="home"><a href="#">Home</a></li>
+  </head>
+  <body>
+    <header id="site_head"><!--useful to create the 960px limit-->
 
-      <li><a href="#">About Me</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    </nav>
+      <div class="header_cont">
+	<h1><a href="#">mr. hurley</a></h1>
+	
+	<nav class="head_nav">
+	  <ul>
+	    <li class="rss"><a href="#">Subscribe</a></li>
+	    <li class="twitter"><a href="#">Follow Me</a></li>
+	    <li class="home"><a href="#">Home</a></li>
+
+	    <li><a href="#">About Me</a></li>
+	    <li><a href="#">Portfolio</a></li>
+	    <li><a href="#">Contact</a></li>
+	  </ul>
+	</nav>
+      </div>
+    </header>
+
+    
+    <div id="main_content"><!--useful to create the 960px limit-->
+      <%= yield %>
+      <footer class="bottom">
+	<p>Contents and resources released under Creative Commons License.</p>
+
+	<p>Design and code by Piervincenzo Madeo - 2010 Mr Hurley Theme - A free HTM5 and CSS3 template.</p>
+      </footer>
     </div>
-  </header>
-
-  
-  <div id="main_content"><!--useful to create the 960px limit-->
-
-    <%=yield%>
     
-    <footer class="bottom">
-      <p>Contents and resources released under Creative Commons License.</p>
-
-      <p>Design and code by Piervincenzo Madeo - 2010 Mr Hurley Theme - A free HTM5 and CSS3 template.</p>
-    </footer>
-  </div>
-  
-  
-  
-</body>
+    <%= javascript_include_tag('dataevent') -%>
+    
+  </body>
 </html>
 
