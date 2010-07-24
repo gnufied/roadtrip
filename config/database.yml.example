@@ -1,0 +1,21 @@
+common: &common
+  username: root
+  adapter: mysql
+  host: localhost
+  pool: 5
+  timeout: 5000
+    
+development:
+  <<: *common
+  database: roatrip_dev
+
+
+test: &TEST
+  <<: *common
+  database: roadtrip_test
+
+
+production:
+  <<: *common
+  database: roadtrip_production
+
