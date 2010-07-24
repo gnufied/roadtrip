@@ -3,7 +3,7 @@
 if (!window.WebSocket)
     alert("WebSocket not supported by this browser");
 
-$ = function() { return document.getElementById(arguments[0]); }
+getElement = function() { return document.getElementById(arguments[0]); }
 $F = function()  { return document.getElementById(arguments[0]).value; }
 
 function getKeyCode(ev) { 
@@ -22,9 +22,9 @@ var room = {
     },
     
     _onopen: function(){
-        $('join').className='hidden';
-        $('joined').className='';
-        $('phrase').focus();
+        getElement('join').className='hidden';
+        getElement('joined').className='';
+        getElement('phrase').focus();
         room._send(room._username,'has joined!');
     },
     
@@ -45,7 +45,7 @@ var room = {
 	    var from = data.user;
 	    var text = data.message;
             
-            var chat=$('chat');
+            var chat = getElement('chat');
             var spanFrom = document.createElement('span');
             spanFrom.className='from';
             spanFrom.innerHTML=from+':&nbsp;';
@@ -62,10 +62,10 @@ var room = {
     
     _onclose: function(m) {
         this._ws=null;
-        $('join').className='';
-        $('joined').className='hidden';
-        $('username').focus();
-        $('chat').innerHTML='';
+        getElement('join').className='';
+        getElement('joined').className='hidden';
+        getElement('username').focus();
+        getElement('chat').innerHTML='';
     }
     
 };

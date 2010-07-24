@@ -1,14 +1,16 @@
-<div class="question">
+<div class="question" id='audience_question'>
   <div class="title">
     <span class='question_mark'>Q. </span>
-    Identify the author <br />
-    <em>
-      All that is gold does not glitter, <br/>
-      Not all those who wander are lost;
-    </em>
+    <span id='question_content'>
+      Identify the author <br />
+      <em>
+	All that is gold does not glitter, <br/>
+	Not all those who wander are lost;
+      </em>
+    </span>
   </div>
   <div class="answer">
-    <% form_tag('/audience') do -%>
+    <% form_tag('/audience/save') do -%>
       <div class='answer_option'>
 	<%= radio_button_tag 'gender', 'male' -%> Male
       </div>
@@ -21,6 +23,9 @@
       <div class='answer_option'>
 	<%= radio_button_tag 'gender', 'bar' -%> Bar
       </div>
+      <span class='more'> 
+	<%= link_to('&nbsp;Submit&nbsp;','/audience/save',:form_id => 'foo', :class => 'remote') -%> 
+      </span>
     <% end -%>
   </div>
 </div>
