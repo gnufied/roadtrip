@@ -57,7 +57,9 @@ var room = {
     },
 
     _sendJson: function(data) {
-	var finalMessage = {'user': user, 'data': data };
+	var finalMessage = {'user': room._username, 'data': data };
+	if (this._ws)
+            this._ws.send(JSON.stringify(finalMessage));
     },
     
     chat: function(text) {
@@ -70,7 +72,6 @@ var room = {
 	    var data = JSON.parse(m.data);
 	    var from = data.user;
 	    var text = data.message;
-            console.log(from + ':' + text);
             // var chat = getElement('chat');
             // var spanFrom = document.createElement('span');
             // spanFrom.className='from';
@@ -87,6 +88,7 @@ var room = {
     },
     
     _onclose: function(m) {
+	console.log("Close he connection");
         this._ws=null;
         getElement('join').className='';
         getElement('joined').className='hidden';

@@ -2,35 +2,21 @@
   <div class="title">
     <span class='question_mark'>Q. </span>
     <span id='question_content'>
-      Identify the author <br />
-      <em>
-	All that is gold does not glitter, <br/>
-	Not all those who wander are lost;
-      </em>
+      <%= @question.content -%>
     </span>
   </div>
   <div class="answer">
     <% form_tag('/audience/save',:id => 'question_form') do -%>
-      <%= hidden_field_tag 'question_id', '10'-%>
+      <%= hidden_field_tag 'question_id', @question.id -%>
       <div id='answer_choices'>
-	<div class='answer_option'>
-	  <%= radio_button_tag 'gender', 'male' -%> Male
-	</div>
-	<div class='answer_option'>
-	  <%= radio_button_tag 'gender', 'female' -%> Female
-	</div>
-	<div class='answer_option'>
-	  <%= radio_button_tag 'gender', 'foo' -%> Foo
-	</div>
-	<div class='answer_option'>
-	  <%= radio_button_tag 'gender', 'bar' -%> Bar
-	</div>
+	<% @question.answers.each do |answer| -%>
+	  <%= radio_button_tag 'answer', answer.id -%> <%= answer.content -%> <br />
+	<% end -%>
       </div>
       <span class='more'> 
-	<%= link_to('&nbsp;Submit&nbsp;','#',:id => 'submit_link') -%> 
+	<a href='#' id='submit_link'> &nbsp;Submit&nbsp; </a>
       </span>
     <% end -%>
   </div>
 </div>
-
 

@@ -1,10 +1,4 @@
 $(document).ready(function() {
-    $("a#submit_link").click(function() {
-	var userChoice = $("form#question_form input:radio[name=gender]:checked").val();
-	console.log(userChoice);
-	room._sendJson({'question_id': $('#question_id').val(),'option': userChoice});
-	return false;
-    });
     $('a#screen_name_link').click(function() {
 	var screenName = $('form input:text[name=screen_name]').val();
 	createCookie('screenName',screenName);
@@ -14,4 +8,15 @@ $(document).ready(function() {
 	});
 	return false;
     });
+});
+
+$('a#submit_link').live('click',function() {
+    var userChoice = $("form#question_form input:radio[name=answer]:checked").val();
+    var jsonResponse = {
+	'question_id': $('#question_id').val(),
+	'option': userChoice,
+	'type': 'user_answer'
+    }
+    room._sendJson(jsonResponse);
+    return false;
 });
