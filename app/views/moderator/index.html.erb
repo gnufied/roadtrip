@@ -1,9 +1,11 @@
     <section id="new_question">
-      <form action="#" onsubmit="Quiz.generateIdeas()">
+      <form action="#" onsubmit="Quiz.generateIdeas(); return false;">
         <p><%= text_field_tag "idea_keyword"%><%=submit_tag "Generate Ideas"%></p>
       </form>
-
+      <div id="question_ideas">Type a query and click 'Generate Ideas' to generate new ideas</div>
+      <div id="question_ideas_images"></div>
     </section>
+
 
 		<section id="last_posts"><!--section for recent posts-->
 		<header class="section_tit">
