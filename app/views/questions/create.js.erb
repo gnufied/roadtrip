@@ -1,2 +1,3 @@
 $("#main_column").html("<%=escape_javascript(render :partial => 'create')%>");
+Quiz.questionCreated("<%=@new_question.id%>");
 Quiz.init();

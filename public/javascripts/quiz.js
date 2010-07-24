@@ -40,13 +40,13 @@ var Quiz = {
           jQuery("#create_q_form").submit(function(){
 //            console.log(jQuery("#rte body").html);
             jQuery("#question_content").val(jQuery("iframe").contents().find("body").html());
-            jQuery.post(jQuery(this).attr("action"), jQuery(this).serialize(), function(){
-
-              alert("Question Created! Time to Trigger Callback");
-
-            }, "script");
+            jQuery.post(jQuery(this).attr("action"), jQuery(this).serialize(), null , "script");
             return false;
           });
+  },
+
+  questionCreated: function(question_id){
+    alert("Question created with id: "+question_id);
   }
 
 };
