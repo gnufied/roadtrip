@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration
   def self.up
     create_table :questions do |t|
-      t.string :content
+      t.text :content
       t.string :title
       t.timestamps
     end

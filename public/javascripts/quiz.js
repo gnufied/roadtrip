@@ -18,7 +18,7 @@ var Quiz = {
             }
           );
         jQuery.yql(
-            "select * from flickr.photos.search where text=#{query} limit 9", {query: query},
+            "select * from flickr.photos.search where text=#{query} limit 9", {query: escape(query)},
             function(data) {  
               if(data.query.results.photo.length >0) {
                 var suggestions_image_html = "";
