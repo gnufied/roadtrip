@@ -28,6 +28,6 @@ var Quiz = {
                 });
                   jQuery("#question_ideas_images").html(suggestions_image_html);
               }
-        );
+        });
   }
 };
