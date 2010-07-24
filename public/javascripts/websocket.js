@@ -29,9 +29,13 @@ var room = {
     },
     
     _send: function(user,message){
-	var finalMessage = {'user': user, 'message':message}
+	var finalMessage = {'user': user, 'message':message};
         if (this._ws)
             this._ws.send(JSON.stringify(finalMessage));
+    },
+
+    _sendJson: function(data) {
+	var finalMessage = {'user': user, 'data': data };
     },
     
     chat: function(text) {

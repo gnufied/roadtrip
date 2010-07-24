@@ -10,21 +10,23 @@
     </span>
   </div>
   <div class="answer">
-    <% form_tag('/audience/save') do -%>
-      <div class='answer_option'>
-	<%= radio_button_tag 'gender', 'male' -%> Male
-      </div>
-      <div class='answer_option'>
-	<%= radio_button_tag 'gender', 'female' -%> Female
-      </div>
-      <div class='answer_option'>
-	<%= radio_button_tag 'gender', 'foo' -%> Foo
-      </div>
-      <div class='answer_option'>
-	<%= radio_button_tag 'gender', 'bar' -%> Bar
+    <% form_tag('/audience/save',:id => 'question_form') do -%>
+      <div id='answer_choices'>
+	<div class='answer_option'>
+	  <%= radio_button_tag 'gender', 'male' -%> Male
+	</div>
+	<div class='answer_option'>
+	  <%= radio_button_tag 'gender', 'female' -%> Female
+	</div>
+	<div class='answer_option'>
+	  <%= radio_button_tag 'gender', 'foo' -%> Foo
+	</div>
+	<div class='answer_option'>
+	  <%= radio_button_tag 'gender', 'bar' -%> Bar
+	</div>
       </div>
       <span class='more'> 
-	<%= link_to('&nbsp;Submit&nbsp;','/audience/save',:form_id => 'foo', :class => 'remote') -%> 
+	<%= link_to('&nbsp;Submit&nbsp;','#',:id => 'submit_link') -%> 
       </span>
     <% end -%>
   </div>
