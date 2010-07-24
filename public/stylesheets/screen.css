@@ -39,7 +39,10 @@ input[type='radio'] {
   margin-right: 10px;
 }
 
-input#idea_keyword {
+input#idea_keyword, input[type="text"] {
+  height: 23px;
+  font-size: 14px;
+  font-weight: bold;
   margin-right: 10px;
 }
 
@@ -170,6 +173,7 @@ nav.head_nav ul li.rss a:hover, nav.head_nav ul li.twitter a:hover  {
   width: 600px;
   margin-right: 40px;
   float: left;
+  margin-bottom: 20px;
 }
 
 #sidebar {
@@ -456,4 +460,9 @@ footer.bottom p {
 
 .rte-zone {
   margin-bottom: 20px;
+}
+
+#get_started h2{
+  margin-bottom: 30px;
+  
 }
