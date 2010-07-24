@@ -28,10 +28,24 @@ h1, h2, h3 {
 h2 {
     font-size: 22px;
     line-height: 28px;
+    margin-bottom: 15px;
 }
 
 .float {
     float:left;
+}
+
+input[type='radio'] {
+  margin-right: 10px;
+}
+
+input#idea_keyword {
+  margin-right: 10px;
+}
+
+p {
+  line-height: 1.5em;
+  margin-bottom: 1.1em;
 }
 
 body {
@@ -44,13 +58,12 @@ body {
 /* Header */
 
 header#site_head {
-    background: url(images/bck_head.jpg);
     -moz-box-shadow: inset 0px -2px 3px #480508;
     -khtml-box-shadow: inset 0px -2px 3px #480508;				
     -webkit-box-shadow: inset 0px -2px 3px #480508;
     box-shadow: inset 0px -2px 3px #480508;
     border-bottom: 1px solid #fffffb;
-    height: 70px;
+    height: 90px;
     width: 100%;
     display: block;
 }
@@ -62,15 +75,7 @@ header#site_head {
 }
 
 .header_cont h1 {
-    text-indent:-9999px;
     float: left;
-}
-
-.header_cont h1 a {
-    background: url(images/logo.png) no-repeat;
-    width: 143px;
-    height: 45px;
-    display: block;
 }
 
 .header_cont h1 a:hover {
@@ -161,6 +166,18 @@ nav.head_nav ul li.rss a:hover, nav.head_nav ul li.twitter a:hover  {
     padding-top: 15px;
 }
 
+#main_column {
+  width: 600px;
+  margin-right: 40px;
+  float: left;
+}
+
+#sidebar {
+  width: 320px;
+  float: left;
+}
+
+
 
 /* Last posts section */	
 
@@ -197,6 +214,13 @@ img {
     box-shadow: 0px 0px 5px #c6c6bf;
 }
 
+header#site_head img{
+    border: none;
+    -moz-border-radius: none;
+    -moz-box-shadow: none;
+
+}
+
 div.single_post footer {
     color: #2b2b28;
     text-align:right;
@@ -217,7 +241,7 @@ div.single_post ul  li a {
 }
 
 div.art {
-    width: 250px;
+/*    width: 250px; */
     display: block;
     background: rgb(255,255,255); /*rgba ie fix*/
     background: rgba(255,255,255,0.75);
@@ -231,9 +255,15 @@ div.art {
     -khtml-box-shadow: 0px 0px 5px #c6c6bf;
     -webkit-box-shadow: 0px 0px 5px #c6c6bf;
     box-shadow: 0px 0px 5px #c6c6bf;
-    margin-left: 15px;
     overflow: auto;
     float:left;
+    clear: both;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+#question_ideas_images img {
+  margin-right: 17px;
 }
 
 div.art:hover {
@@ -258,7 +288,7 @@ span.more, span.more_arch {
     margin: 30px 20px 30px 0px;
 }
 
-span.more a, span.more_arch a, .about_left ul li a {
+span.more a, span.more_arch a, .about_left ul li a, input[type="submit"] {
     background: #8badc2;
     -moz-border-radius: 15px;			
     -khtml-border-radius: 15px;	
@@ -273,7 +303,7 @@ span.more a, span.more_arch a, .about_left ul li a {
     box-shadow: inset 0px 0px 2px #3f5867;				
 }
 
-span.more a:hover, span.more_arch a:hover, .about_left ul li a:hover {
+span.more a:hover, span.more_arch a:hover, .about_left ul li a:hover, input[type="submit"]:hover {
     background: #b8ccd7;
     text-shadow: none;
     -moz-box-shadow: none;			
