@@ -11,4 +11,8 @@ class AudienceController < ApplicationController
       }
     end
   end
+
+  def start_quiz
+    render :layout => false
+  end
 end

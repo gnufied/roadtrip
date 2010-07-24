@@ -10,6 +10,31 @@ function getKeyCode(ev) {
     if (window.event) return window.event.keyCode; return ev.keyCode; 
 } 
 
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
 var room = {
     join: function(name) {
         this._username=name;
@@ -22,9 +47,6 @@ var room = {
     },
     
     _onopen: function(){
-        getElement('join').className='hidden';
-        getElement('joined').className='';
-        getElement('phrase').focus();
         room._send(room._username,'has joined!');
     },
     
@@ -48,19 +70,19 @@ var room = {
 	    var data = JSON.parse(m.data);
 	    var from = data.user;
 	    var text = data.message;
-            
-            var chat = getElement('chat');
-            var spanFrom = document.createElement('span');
-            spanFrom.className='from';
-            spanFrom.innerHTML=from+':&nbsp;';
-            var spanText = document.createElement('span');
-            spanText.className='text';
-            spanText.innerHTML=text;
-            var lineBreak = document.createElement('br');
-            chat.appendChild(spanFrom);
-            chat.appendChild(spanText);
-            chat.appendChild(lineBreak);
-            chat.scrollTop = chat.scrollHeight - chat.clientHeight;   
+            console.log(from + ':' + text);
+            // var chat = getElement('chat');
+            // var spanFrom = document.createElement('span');
+            // spanFrom.className='from';
+            // spanFrom.innerHTML=from+':&nbsp;';
+            // var spanText = document.createElement('span');
+            // spanText.className='text';
+            // spanText.innerHTML=text;
+            // var lineBreak = document.createElement('br');
+            // chat.appendChild(spanFrom);
+            // chat.appendChild(spanText);
+            // chat.appendChild(lineBreak);
+            // chat.scrollTop = chat.scrollHeight - chat.clientHeight;   
         }
     },
     
