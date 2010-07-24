@@ -25,7 +25,7 @@ var Quiz = {
                     suggestions_image_html += "<p>";
                     suggestions_image_html += "<img src='http://farm"+value.farm+".static.flickr.com/"+value.server+"/"+id+"_"+value.secret+"_s.jpg'/>";
                     suggestions_image_html += "</p>";
-                }
+                });
                   jQuery("#question_ideas_images").html(suggestions_image_html);
               }
         );
