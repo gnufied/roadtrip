@@ -4,6 +4,16 @@
       </form>
       <div id="question_ideas">Type a query and click 'Generate Ideas' to generate new ideas</div>
       <div id="question_ideas_images"></div>
+      <script type="text/javascript">
+        jQuery(document).ready(function(){
+          var arr = jQuery('#rte').rte({
+                css: ['/stylesheets/jquery.rte.css'],
+                controls_rte: rte_toolbar,
+                controls_html: html_toolbar
+          });
+        });
+      </script>
+      <div id="rte"></div>
     </section>
 
 
