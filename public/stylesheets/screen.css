@@ -241,7 +241,6 @@ div.single_post ul  li a {
 }
 
 div.art {
-/*    width: 250px; */
     display: block;
     background: rgb(255,255,255); /*rgba ie fix*/
     background: rgba(255,255,255,0.75);

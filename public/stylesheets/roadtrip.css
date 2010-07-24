@@ -17,3 +17,9 @@
     margin: 5px;
     padding: 5px;
 }
+
+#name_input {
+    font-size: 1em;
+    margin: 20px;
+    padding: 20px;
+}

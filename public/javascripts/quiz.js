@@ -28,5 +28,25 @@ var Quiz = {
                   jQuery("#question_ideas_images").html(suggestions_image_html);
               }
         });
+  },
+
+  init: function(){
+         arr = jQuery('#rte').rte({
+                css: ['/stylesheets/jquery.rte.css'],
+                controls_rte: rte_toolbar
+          });
+
+        
+          jQuery("#create_q_form").submit(function(){
+//            console.log(jQuery("#rte body").html);
+            jQuery("#question_content").val(jQuery("iframe").contents().find("body").html());
+            jQuery.post(jQuery(this).attr("action"), jQuery(this).serialize(), function(){
+
+              alert("Question Created! Time to Trigger Callback");
+
+            }, "script");
+            return false;
+          });
   }
+
 };
