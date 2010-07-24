@@ -14,6 +14,5 @@ class AudienceController < ApplicationController
 
   def start_quiz
     @question = Question.first
-    render :layout => false
   end
 end
