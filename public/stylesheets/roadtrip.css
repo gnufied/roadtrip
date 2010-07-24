@@ -1,0 +1,19 @@
+.question_mark {
+    font-weight: bold;
+    font-size: 2.2em;
+}
+
+.question {
+    font-size: 3em;
+}
+
+.answer {
+    border: 1px solid #996666;
+    margin: 10px;
+    padding: 10px;
+}
+
+.answer p {
+    margin: 5px;
+    padding: 5px;
+}
