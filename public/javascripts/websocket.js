@@ -73,7 +73,6 @@ var room = {
 	    console.log(data);
 	    if(data.message_type != undefined) {
 		if(data.message_type == 'question') {
-		    console.log("Truing to get some data in");
 		    var question = data.question;
 		    var answers = data.answers;
 		    $('#question_content').html(question.content);
@@ -87,6 +86,8 @@ var room = {
 			content += answer.content + "<br />";
 		    }
 		    $('#answer_choices').html(content);
+		    $('#your_result').html('');
+		    $('#stats').html('');
 		}else if(data.message_type == 'user_response') {
 		    plotStuff(data);
 		}

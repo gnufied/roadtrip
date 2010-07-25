@@ -27,7 +27,7 @@ function plotStuff(dataPoints) {
     $('#stats').html(statString);
     //$('#stats').effect("highlight", {}, 3000);
     if(dataPoints.correct)
-	$('#your_result').html("<img src='/images/button_accept.png' /> &nbsp;&nbsp;&nbsp; Your answer was correct");
+	$('#your_result').html("<img src='/images/button_accept.png' /> &nbsp;&nbsp;&nbsp; " + dataPoints.username + "'s answer was correct");
     else
-	$('#your_result').html("<img src='/images/button_cancel.png' /> &nbsp;&nbsp;&nbsp; Your answer was incorrect");
+	$('#your_result').html("<img src='/images/button_cancel.png' /> &nbsp;&nbsp;&nbsp; " + dataPoints.username + "'s answer was incorrect");
 }
