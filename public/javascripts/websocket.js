@@ -1,7 +1,7 @@
 /* Hackey javascript taken from websocket demo application */
 
-if (!window.WebSocket)
-    alert("WebSocket not supported by this browser");
+    if (!window.WebSocket)
+	alert("WebSocket not supported by this browser");
 
 getElement = function() { return document.getElementById(arguments[0]); }
 $F = function()  { return document.getElementById(arguments[0]).value; }
@@ -11,28 +11,28 @@ function getKeyCode(ev) {
 } 
 
 function createCookie(name,value,days) {
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
+    if (days) {
+	var date = new Date();
+	date.setTime(date.getTime()+(days*24*60*60*1000));
+	var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
 }
 
 function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+	var c = ca[i];
+	while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
 }
 
 function eraseCookie(name) {
-	createCookie(name,"",-1);
+    createCookie(name,"",-1);
 }
 
 var room = {
@@ -71,42 +71,33 @@ var room = {
         if (m.data){
 	    var data = JSON.parse(m.data);
 	    console.log(data);
-	    if(data.message_type != undefined && data.message_type == "question") {
-		console.log("Truing to get some data in");
-		var question = data.question;
-		var answers = data.answers;
-		$('#question_content').html(question.content);
-		$('#question_id').val(question.id);
-		var content = '';
-		for(index in answers) {
-		    console.log(answers[index]);
-		    var answer = answers[index];
-		    console.info(answer);
-		    content += "<input type='radio' name='answer' value='" + answer.id + "'>";
-		    content += answer.content + "<br />";
+	    if(data.message_type != undefined) {
+		if(data.message_type == 'question') {
+		    console.log("Truing to get some data in");
+		    var question = data.question;
+		    var answers = data.answers;
+		    $('#question_content').html(question.content);
+		    $('#question_id').val(question.id);
+		    var content = '';
+		    for(index in answers) {
+			console.log(answers[index]);
+			var answer = answers[index];
+			console.info(answer);
+			content += "<input type='radio' name='answer' value='" + answer.id + "'>";
+			content += answer.content + "<br />";
+		    }
+		    $('#answer_choices').html(content);
+		}else if(data.message_type == 'user_response') {
+		    plotStuff(data);
 		}
-		$('#answer_choices').html(content);
 	    }
-            // var chat = getElement('chat');
-            // var spanFrom = document.createElement('span');
-            // spanFrom.className='from';
-            // spanFrom.innerHTML=from+':&nbsp;';
-            // var spanText = document.createElement('span');
-            // spanText.className='text';
-            // spanText.innerHTML=text;
-            // var lineBreak = document.createElement('br');
-            // chat.appendChild(spanFrom);
-            // chat.appendChild(spanText);
-            // chat.appendChild(lineBreak);
-            // chat.scrollTop = chat.scrollHeight - chat.clientHeight;   
+            
         }
     },
     
     _onclose: function(m) {
 	console.log("Close he connection");
         this._ws=null;
-        getElement('join').className='';
-        getElement('joined').className='hidden';
         getElement('username').focus();
         getElement('chat').innerHTML='';
     }

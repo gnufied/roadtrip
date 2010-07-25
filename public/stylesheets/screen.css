@@ -477,3 +477,13 @@ footer.bottom p {
 .answer_screen p, .answer_screen form {
   margin-left: 5px;
 }
+
+div#stats, #your_result {
+    font-size: 1.3em;
+    width: 100%;
+    padding: 10px;
+}
+
+p.correct { color: green; }
+p.incorrect { color: red; }
+
