@@ -38,15 +38,19 @@ var Quiz = {
 
         
           jQuery("#create_q_form").submit(function(){
-//            console.log(jQuery("#rte body").html);
-            jQuery("#question_content").val(jQuery("iframe").contents().find("body").html());
-            jQuery.post(jQuery(this).attr("action"), jQuery(this).serialize(), null , "script");
-            return false;
+              jQuery("#question_content").val(jQuery("iframe").contents().find("body").html());
+              jQuery.post(jQuery(this).attr("action"), jQuery(this).serialize(), null , "script");
+              return false;
           });
   },
 
   questionCreated: function(question_id){
-    alert("Question created with id: "+question_id);
+      var jsonResponse = {
+	  'question_id': question_id,
+	  'type': 'moderator_question'
+      }
+      room._sendJson(jsonResponse);
+      return false;
   }
 
 };

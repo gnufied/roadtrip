@@ -1,21 +1,22 @@
-    <section id="new_question">
-      <script type="text/javascript">
-        jQuery(document).ready(function(){
-          Quiz.init();
-        });
-      </script>
-      <div id="main_column">
-        <%= render :partial => 'questions/create'%>  
-      </div>
-      <div id="sidebar">
-        <h2>Get Inspiration</h2>
-        <form action="#" onsubmit="Quiz.generateIdeas(); return false;">
-          <p><%= text_field_tag "idea_keyword"%><%=submit_tag "Generate Ideas"%></p>
-        </form>
-        <div id="question_ideas" class="art"></div>
-        <div id="question_ideas_images" class="art"></div>
-      </div>
-    
-     </section>
+<section id="new_question">
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      Quiz.init();
+      createCookie('screenName','moderator1');
+      room.join('moderator1');
+    });
+  </script>
+  <div id="main_column">
+    <%= render :partial => 'questions/create'%>  
+  </div>
+  <div id="sidebar">
+    <h2>Get Inspiration</h2>
+    <form action="#" onsubmit="Quiz.generateIdeas(); return false;">
+      <p><%= text_field_tag "idea_keyword"%><%=submit_tag "Generate Ideas"%></p>
+    </form>
+    <div id="question_ideas" class="art"></div>
+    <div id="question_ideas_images" class="art"></div>
+  </div>
+</section>
 
 

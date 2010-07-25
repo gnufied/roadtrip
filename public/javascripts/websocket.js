@@ -70,8 +70,23 @@ var room = {
     _onmessage: function(m) {
         if (m.data){
 	    var data = JSON.parse(m.data);
-	    var from = data.user;
-	    var text = data.message;
+	    console.log(data);
+	    if(data.message_type != undefined && data.message_type == "question") {
+		console.log("Truing to get some data in");
+		var question = data.question;
+		var answers = data.answers;
+		$('#question_content').html(question.content);
+		$('#question_id').val(question.id);
+		var content = '';
+		for(index in answers) {
+		    console.log(answers[index]);
+		    var answer = answers[index];
+		    console.info(answer);
+		    content += "<input type='radio' name='answer' value='" + answer.id + "'>";
+		    content += answer.content + "<br />";
+		}
+		$('#answer_choices').html(content);
+	    }
             // var chat = getElement('chat');
             // var spanFrom = document.createElement('span');
             // spanFrom.className='from';
